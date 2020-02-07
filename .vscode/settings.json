@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/565e4ece-d22c-4d7e-8caa-9c6b31e63240/resourceGroups/Oaks/providers/Microsoft.Web/sites/oakchart",
+    "appService.deploySubpath": ""
+}
