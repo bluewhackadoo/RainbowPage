@@ -5,15 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome",
-            "url": "http://localhost:5500",
-            //"url": "${workspaceFolder}/onoff/index.html",
+            "name": "Attach to Edge",
+            "port": 9222,
+            "request": "attach",
+            "type": "msedge",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Open moongame.html",
+            "file": "d:\\Git\\RainbowPage\\moongame.html"
         }
-    
-
-
     ]
 }

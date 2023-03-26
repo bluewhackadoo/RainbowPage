@@ -38,31 +38,16 @@ function initialize() {
     $("#canvasSignature").ready(function (mouseEvent) {
         var position = getPosition(mouseEvent, sigCanvas);
 
-        //context.rect(position.X, position.Y, position.X+40, position.Y+20);
-        //context.moveTo(position.X, position.Y);
-        //context.beginPath();
-
         // attach event handlers
         $(this).mousemove(function (mouseEvent) {
             
             if(mo == true)
             {    
                 mo = false;
-                //rect(position.X, position.Y, position.X+40, position.Y+20);
-                //fill();
-                //changeBackground('Black');  
-                
-                //context.beginPath(getPosition(mouseEvent, sigCanvas));
             }
             else
             {
-                //drawLine(mouseEvent, sigCanvas, context);
-                
-                //drawBackg(context2);
                 drawRect(mouseEvent, sigCanvas, context);
-                
-                //context.moveTo(position.X, position.Y);
-                
             }
         }).mouseout(function (mouseEvent) {
             mo = true;
