@@ -1,27 +1,182 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<link rel="stylesheet" href="onoff/styles.css">
-   <meta charset="utf-8" />
-   <title>HiYallDoin BBQ Rainbow Unicorn</title>
- 
-   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-   <script type="text/javascript" src="./rainbowbg.js"></script>
- 
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+    * {
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+iframe {
+  position: relative;
+  width: 100%;
+}
+
+content {}
+
+
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+    <script src="/js/stringify.js?6145cc54326f55ae83af3714188246fc647334e2" charset="utf-8"></script>
+    <script>
+      const customConsole = (w) => {
+        const pushToConsole = (payload, type) => {
+          w.parent.postMessage({
+            console: {
+              payload: stringify(payload),
+              type:    type
+            }
+          }, "*")
+        }
+
+        w.onerror = (message, url, line, column) => {
+          // the line needs to correspond with the editor panel
+          // unfortunately this number needs to be altered every time this view is changed
+          line = line - 70
+          if (line < 0){
+            pushToConsole(message, "error")
+          } else {
+            pushToConsole(`[${line}:${column}] ${message}`, "error")
+          }
+        }
+
+        let console = (function(systemConsole){
+          return {
+            log: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "log")
+              systemConsole.log.apply(this, args)
+            },
+            info: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "info")
+              systemConsole.info.apply(this, args)
+            },
+            warn: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "warn")
+              systemConsole.warn.apply(this, args)
+            },
+            error: function(){
+              let args = Array.from(arguments)
+              pushToConsole(args, "error")
+              systemConsole.error.apply(this, args)
+            },
+            system: function(arg){
+              pushToConsole(arg, "system")
+            },
+            clear: function(){
+              systemConsole.clear.apply(this, {})
+            },
+            time: function(){
+              let args = Array.from(arguments)
+              systemConsole.time.apply(this, args)
+            },
+            assert: function(assertion, label){
+              if (!assertion){
+                pushToConsole(label, "log")
+              }
+
+              let args = Array.from(arguments)
+              systemConsole.assert.apply(this, args)
+            }
+          }
+        }(window.console))
+
+        window.console = { ...window.console, ...console }
+
+        console.system("Running fiddle")
+      }
+
+      if (window.parent){
+        customConsole(window)
+      }
+    </script>
 </head>
- 
-<body onload="initialize()">
-   <h1></h1>
- 
-   <div id="canvasDiv">
-      <!-- It's bad practice (to me) to put your CSS here.  I'd recommend the use of a CSS file! -->
-      <!-- canvas id="canvasSignature" width="500px" height="500px" style="border:2px solid #000000;"></canvas> -->
-      <canvas id="canvasSignature" style="border:0px solid #000000;overflow:hidden;margin: 0px;display: block"></canvas>
-      <div id="boxy">
-      <canvas id="boxcanv" style="color:white;width:100;height:100"></canvas>
-      </div>
-   </div>
-   <h1>HiYallDoin BBQ</h1>
+<body>
+    <div class="page">
+  <div class="background">
+
+   <iframe allowtransparence="false" width="640" height="360" frameborder="0"
+      src="https://www.shadertoy.com/embed/dtt3DS?gui=false&t=10&paused=false&muted=false" frameborder="0"
+      style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
+   <!-- <iframe width="640" height="360" frameborder="0"
+      src="https://www.shadertoy.com/embed/lsKGW3?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe> -->
+  </div>
+  <content>
+
+  </content>
+</div>
+
+
+    <script type="text/javascript">//<![CDATA[
+
+
+
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "knxh2a4h"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+    <script>
+      let allLines = []
+
+      window.addEventListener("message", (message) => {
+        if (message.data.console){
+          let insert = document.querySelector("#insert")
+          allLines.push(message.data.console.payload)
+          insert.innerHTML = allLines.join(";\r")
+
+          let result = eval.call(null, message.data.console.payload)
+          if (result !== undefined){
+            console.log(result)
+          }
+        }
+      })
+    </script>
+
 </body>
 </html>
