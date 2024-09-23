@@ -10,6 +10,8 @@
             /* Dark blue/black sky */
             display: block;
             margin: 0 auto;
+            width: 90vw;
+            height: 90vh;
         }
 
         #start-screen,
@@ -17,8 +19,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 800px;
-            height: 400px;
+            /* width: 800px;
+            height: 400px; */
+
             background-color: rgba(0, 0, 32, 0.9);
             color: white;
             font-family: Arial, sans-serif;
@@ -37,10 +40,13 @@
         #hud {
             position: absolute;
             top: 10px;
-            left: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             color: white;
             font-family: Arial, sans-serif;
             font-size: 16px;
+            text-align: center;
+            width: 100%;
         }
     </style>
 </head>
@@ -309,7 +315,7 @@
             }
 
             // Update HUD
-            //hud.innerHTML = `Score: ${score} &nbsp;&nbsp; Lives: ${lives} &nbsp;&nbsp; Level: ${level}`;
+            // hud.innerHTML = `Score: ${score} &nbsp;&nbsp; Lives: ${lives} &nbsp;&nbsp; Level: ${level}`;
             // center the socre and level on the top of the screen
             hud.innerHTML = `<div style="text-align: center;">Score: ${score} &nbsp;&nbsp; Lives: ${lives} &nbsp;&nbsp; Level: ${level}</div>`;
             
