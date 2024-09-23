@@ -10,6 +10,8 @@
             "type": "msedge",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
+            // current file
+            ,"file": "${file}"
         },
         {
             "name": "Attach to Edge",

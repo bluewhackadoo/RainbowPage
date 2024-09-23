@@ -3,37 +3,38 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moon Patrol Clone</title>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
         canvas {
             background-color: #000020;
-            /* Dark blue/black sky */
             display: block;
-            margin: 0 auto;
-            width: 90vw;
-            height: 90vh;
+            margin: auto;
+            width: 100vw;
+            height: 100%;
         }
 
         #start-screen,
         #game-over-screen {
             position: absolute;
-            top: 0;
-            left: 0;
-            /* width: 800px;
-            height: 400px; */
-
+            top: 40%;
+            left: 40%;
             background-color: rgba(0, 0, 32, 0.9);
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding-top: 50px;
         }
 
         #start-button,
         #restart-button {
             padding: 10px 20px;
             font-size: 18px;
-            margin-top: 20px;
             cursor: pointer;
         }
 
@@ -48,21 +49,29 @@
             text-align: center;
             width: 100%;
         }
+
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            height: 100%;
+        }
     </style>
 </head>
 
 <body>
-    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+    </div>
     <div id="start-screen">
-        <h1>Moon Patrol Clone</h1>
-        <p>Controls:</p>
+        <h1>Moon Patroool</h1>
+        <button id="start-button">Press Start</button><br/>
         <ul style="text-align: left; display: inline-block;">
+            Controls:<br/>
             <li>Spacebar: Jump</li>
             <li>'F' key: Shoot</li>
             <li>Right Arrow: Speed Up</li>
             <li>Left Arrow: Slow Down</li>
         </ul>
-        <button id="start-button">Press Start</button>
     </div>
     <div id="game-over-screen" style="display: none;">
         <h1>Game Over</h1>
@@ -152,6 +161,27 @@
         vehicleImage.onload = function () {
             vehicleImageLoaded = true;
         };
+
+        // Touch support for mobile devices
+        document.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            if (touch.clientX > window.innerWidth / 2) {
+            keysPressed['arrowright'] = true;
+            } else {
+            keysPressed[' '] = true;
+            }
+        });
+
+        document.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            keysPressed['arrowright'] = false;
+            keysPressed[' '] = false;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        });
 
         // Game Functions
         function startGame() {
