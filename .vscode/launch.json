@@ -1,36 +1,36 @@
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch Edge",
-            "request": "launch",
-            "type": "msedge",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-            // current file
-            ,"file": "${file}"
-        },
-        {
-            "name": "Attach to Edge",
-            "port": 9222,
-            "request": "attach",
-            "type": "msedge",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "msedge",
-            "request": "launch",
-            "name": "Open moongame.html",
-            "file": "d:\\Git\\RainbowPage\\moongame.html"
-        },
-        {
-            "type": "msedge",
-            "request": "launch",
-            "name": "Open index.html",
-            "file": ".\\MoonPatrol2\\index.html"
-        }
-    ]
-}
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Launch Edge",
+//             "request": "launch",
+//             "type": "msedge",
+//             "url": "http://localhost:8080",
+//             "webRoot": "${workspaceFolder}"
+//             // current file
+//             ,"file": "${file}"
+//         },
+//         {
+//             "name": "Attach to Edge",
+//             "port": 9222,
+//             "request": "attach",
+//             "type": "msedge",
+//             "webRoot": "${workspaceFolder}"
+//         },
+//         {
+//             "type": "msedge",
+//             "request": "launch",
+//             "name": "Open moongame.html",
+//             "file": "d:\\Git\\RainbowPage\\moongame.html"
+//         },
+//         {
+//             "type": "msedge",
+//             "request": "launch",
+//             "name": "Open index.html",
+//             "file": ".\\MoonPatrol2\\index.html"
+//         }
+//     ]
+// }

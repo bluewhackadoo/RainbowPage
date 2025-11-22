@@ -3,7 +3,7 @@
 
 <head>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-   <title></title>
+   <title>HiYallDoin BBQ - Synthwave Sunset</title>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
    <meta name="robots" content="noindex, nofollow">
    <meta name="googlebot" content="noindex, nofollow">
@@ -11,6 +11,8 @@
 
 
    <script type="text/javascript" src="/js/lib/dummy.js"></script>
+   <script type="text/javascript" src="js/shader.js"></script>
+   <script type="text/javascript" src="js/audio.js"></script>
 
    <link rel="stylesheet" type="text/css" href="css/styles.css">
 
@@ -19,12 +21,7 @@
 <body>
    <div class="page">
       <div class="background">
-
-         <iframe 
-            src="https://www.shadertoy.com/embed/dtt3DS?gui=false&t=10&paused=false&muted=false"
-           ></iframe>
-         <!-- <iframe width="640" height="360" frameborder="0"
-      src="https://www.shadertoy.com/embed/lsKGW3?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe> -->
+         <canvas id="shaderCanvas"></canvas>
       </div>
       <!-- centered text -->
 
@@ -33,7 +30,9 @@
          <h1>HiYallDoin BBQ</h1><a href="MoonPatrol2/index.html">Moon Game 2</a><a href="moongame.html">Moon Game</a><a href="rainbow.html">Rainbow</a><a href="onoff/index.html">OnOff Game</a>
 
    </div>
-
+   
+   <!-- Music control button -->
+   <button id="musicToggle" class="music-control">⏵</button>
 
 </body>
 

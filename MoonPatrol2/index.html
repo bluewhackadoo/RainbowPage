@@ -340,7 +340,8 @@
                 obstacleInterval = Math.max(500, obstacleInterval - 100);
                 clearInterval(obstacleTimer);
                 obstacleTimer = setInterval(generateObstacle, obstacleInterval);
-                playSound(950, 0.1, type = "sine", sweep = true, sweepdir = 'up'); // Level up sound
+                playSound(650, 0.05, type = "sine", sweep = false); // Level up sound
+                playSound(750, 0.05, type = "sine", sweep = false); // Level up sound
 
             }
 
@@ -549,7 +550,7 @@ function draw() {
                 radius: Math.max(vehicle.width, vehicle.height) / 2
             };
 
-            // Check collision with obstacles
+            // Check buggy collision with obstacles
             for (let obs of obstacles) {
                 if (obs.type === 'boulder') {
                     // Boulder circle
@@ -622,11 +623,18 @@ function draw() {
             return distance < c1.radius + c2.radius;
         }
 
-
         function collisionHandler() {
             playSound(60, 0.5); // Crash sound
             lives--;
             playSound(220, 0.5); // Life lost sound
+            
+            // draw vehicle flipped over for 1 sec before resetting
+            // ctx.save();
+            // ctx.translate(vehicle.x + vehicle.width / 2, vehicle.y + vehicle.height / 2);
+            // ctx.scale(1, -1);
+            // ctx.drawImage(vehicleImage, -vehicle.width / 2, -vehicle.height / 2, vehicle.width, vehicle.height);
+            // ctx.restore();
+            
             // Reset vehicle position
             vehicle.y = groundY - vehicle.height;
             vehicle.velY = 0;
@@ -638,6 +646,8 @@ function draw() {
             if (lives <= 0) {
                 gameOver();
             }
+            // wait 1 sec before starting the game again
+            setTimeout(() => {}, 1000)
         }
 
         function rectIntersect(rect1, rect2) {
